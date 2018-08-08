@@ -1,6 +1,6 @@
 {
   "name": "v-money-persian",
-  "version": "0.8.2",
+  "version": "0.8.3",
   "description": "Vue currency input/directive mask",
   "main": "dist/v-money-persian.es.js",
   "scripts": {
