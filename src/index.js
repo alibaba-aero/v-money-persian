@@ -1,4 +1,4 @@
-import Money from './component'
+import Money from './component.vue'
 import VMoney from './directive'
 import options from './options'
 const VERSION = proccess.env.VERSION

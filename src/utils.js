@@ -1,8 +1,11 @@
 import defaults from './options'
+import { persianToEnglish } from './utils.persian.js'
 
 function format (input, opt = defaults) {
   if (typeof input === 'number') {
     input = input.toFixed(fixed(opt.precision))
+  } else {
+    input = peraianToEnglish(input)
   }
   var negative = input.indexOf('-') >= 0 ? '-' : ''
 
@@ -15,14 +18,18 @@ function format (input, opt = defaults) {
   return opt.prefix + negative + joinIntegerAndDecimal(integer, decimal, opt.decimal) + opt.suffix
 }
 
-function unformat (input, precision) {
+function unformat(input, precision) {
+  input = peraianToEnglish(input)
+
   var negative = input.indexOf('-') >= 0 ? -1 : 1
   var numbers = onlyNumbers(input)
   var currency = numbersToCurrency(numbers, precision)
   return parseFloat(currency) * negative
 }
 
-function onlyNumbers (input) {
+function onlyNumbers(input) {
+  input = peraianToEnglish(input)
+
   return toStr(input).replace(/\D+/g, '') || '0'
 }
 
