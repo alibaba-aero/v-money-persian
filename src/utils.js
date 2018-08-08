@@ -5,7 +5,7 @@ function format (input, opt = defaults) {
   if (typeof input === 'number') {
     input = input.toFixed(fixed(opt.precision))
   } else {
-    input = peraianToEnglish(input)
+    input = persianToEnglish(input)
   }
   var negative = input.indexOf('-') >= 0 ? '-' : ''
 
@@ -19,7 +19,7 @@ function format (input, opt = defaults) {
 }
 
 function unformat(input, precision) {
-  input = peraianToEnglish(input)
+  input = persianToEnglish(input)
 
   var negative = input.indexOf('-') >= 0 ? -1 : 1
   var numbers = onlyNumbers(input)
@@ -28,7 +28,7 @@ function unformat(input, precision) {
 }
 
 function onlyNumbers(input) {
-  input = peraianToEnglish(input)
+  input = persianToEnglish(input)
 
   return toStr(input).replace(/\D+/g, '') || '0'
 }
