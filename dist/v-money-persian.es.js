@@ -228,8 +228,6 @@ var Money = {
   }
 };
 
-var VERSION = proccess.env.VERSION;
-
 function install(Vue, globalOptions) {
   if (globalOptions) {
     Object.keys(globalOptions).map(function (key) {
@@ -246,4 +244,4 @@ if (typeof window !== 'undefined' && window.Vue) {
 }
 
 export default install;
-export { Money, money as VMoney, defaults as options, VERSION };
+export { Money, money as VMoney, defaults as options };
