@@ -19,7 +19,7 @@ For other types of mask, use [vue-the-mask](https://vuejs-tips.github.io/vue-the
 
 ```js
 import Vue from 'vue'
-import money from 'v-money'
+import money from 'v-money-persian'
 
 // register directive v-money and component <money>
 Vue.use(money, {precision: 4})
@@ -35,7 +35,7 @@ Vue.use(money, {precision: 4})
 </template>
 
 <script>
-  import {Money} from 'v-money'
+  import {Money} from 'v-money-persian'
 
   export default {
     components: {Money},
@@ -67,7 +67,7 @@ Must use `vmodel.lazy` to bind works properly.
 </template>
 
 <script>
-  import {VMoney} from 'v-money'
+  import {VMoney} from 'v-money-persian'
 
   export default {
     data () {
