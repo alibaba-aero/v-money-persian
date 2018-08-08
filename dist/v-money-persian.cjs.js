@@ -10,13 +10,36 @@ var defaults = {
   precision: 2
 };
 
+var persianToEnglishMapper = {
+  '۱': 1,
+  '۲': 2,
+  '۳': 3,
+  '۴': 4,
+  '۵': 5,
+  '۶': 6,
+  '۷': 7,
+  '۸': 8,
+  '۹': 9,
+  '۰': 0
+};
+
+function mapChars(input, mapper) {
+  return input.split('').map(function (char) {
+    return mapper[char] || char;
+  }).join('');
+}
+
+function persianToEnglish(input) {
+  return mapChars(input, persianToEnglishMapper);
+}
+
 function format(input) {
   var opt = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : defaults;
 
   if (typeof input === 'number') {
     input = input.toFixed(fixed(opt.precision));
   } else {
-    input = peraianToEnglish(input);
+    input = persianToEnglish(input);
   }
 
   var negative = input.indexOf('-') >= 0 ? '-' : '';
@@ -30,7 +53,7 @@ function format(input) {
 }
 
 function unformat(input, precision) {
-  input = peraianToEnglish(input);
+  input = persianToEnglish(input);
   var negative = input.indexOf('-') >= 0 ? -1 : 1;
   var numbers = onlyNumbers(input);
   var currency = numbersToCurrency(numbers, precision);
@@ -38,7 +61,7 @@ function unformat(input, precision) {
 }
 
 function onlyNumbers(input) {
-  input = peraianToEnglish(input);
+  input = persianToEnglish(input);
   return toStr(input).replace(/\D+/g, '') || '0';
 } // Uncaught RangeError: toFixed() digits argument must be between 0 and 20 at Number.toFixed
 
